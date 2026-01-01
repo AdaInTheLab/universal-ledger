@@ -1,1 +1,1 @@
-console.log('Happy developing ✨')
+// Command dispatcher (stub)

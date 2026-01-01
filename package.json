@@ -1,14 +1,17 @@
 {
-  "name": "${PROJECT_NAME}",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc"
+  "name": "@adainthelab/universal-ledger-cli",
+  "version": "0.1.0",
+  "bin": {
+    "ulc": "bin/ulc.js"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "typescript": "^5.5.3"
-  },
-  "private": true
+  "description": "Client-side context continuity tooling for stateless AI sessions.",
+  "type": "module",
+  "keywords": [
+    "cli",
+    "context",
+    "ledger",
+    "provenance",
+    "continuity"
+  ],
+  "license": "MIT"
 }
