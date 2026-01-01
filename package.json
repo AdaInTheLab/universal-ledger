@@ -1,11 +1,15 @@
 {
   "name": "@adainthelab/universal-ledger-cli",
   "version": "0.1.0",
+  "description": "Client-side context continuity tooling for stateless AI sessions.",
+  "type": "module",
   "bin": {
     "ulc": "bin/ulc.js"
   },
-  "description": "Client-side context continuity tooling for stateless AI sessions.",
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaInTheLab/universal-ledger.git"
+  },
   "keywords": [
     "cli",
     "context",
@@ -13,5 +17,13 @@
     "provenance",
     "continuity"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
 }
