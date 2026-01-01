@@ -1,0 +1,1 @@
+// Validate ledger integrity (stub)
