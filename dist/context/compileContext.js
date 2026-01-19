@@ -1,50 +1,15 @@
-// Compile context packet (stub)
-// src/context/compileContext.ts
-import type { LedgerRecord } from "../ledger/types.js";
-
-export type ContextBlock = {
-    meta: {
-        source: string;
-        version: string;
-        lid: string;
-        created_at: string;
-        project: string;
-    };
-    summary: string;
-    goals: string[];
-    constraints: string[];
-    style: {
-        tone: string;
-        format: string;
-        ask_when_uncertain: boolean;
-    };
-    last_known_state: {
-        as_of: string;
-        notes: string[];
-    };
-    instructions: string[];
-};
-
-type CompileContextOptions = {
-    source?: string;   // default "Universal Ledger CLI"
-    version?: string;  // default "0.1.0" (you can inject later)
-};
-
-function asStringArray(v: unknown): string[] {
-    if (!Array.isArray(v)) return [];
+function asStringArray(v) {
+    if (!Array.isArray(v))
+        return [];
     return v.filter((x) => typeof x === "string").map((s) => s.trim()).filter(Boolean);
 }
-
-export function compileContext(rec: LedgerRecord, opts: CompileContextOptions = {}): ContextBlock {
+export function compileContext(rec, opts = {}) {
     const goals = asStringArray(rec.goals);
     const constraints = asStringArray(rec.constraints);
-
     const style = rec.style ?? {};
     const lastState = rec.last_state ?? {};
-
     const lastNotes = asStringArray(lastState.notes);
     const asOf = typeof lastState.as_of === "string" ? lastState.as_of : "";
-
     return {
         meta: {
             source: opts.source ?? "Universal Ledger CLI",
@@ -59,8 +24,7 @@ export function compileContext(rec: LedgerRecord, opts: CompileContextOptions = 
         style: {
             tone: typeof style.tone === "string" && style.tone.trim() ? style.tone : "Precise, technical",
             format: typeof style.format === "string" && style.format.trim() ? style.format : "Bullets preferred",
-            ask_when_uncertain:
-                typeof style.ask_when_uncertain === "boolean" ? style.ask_when_uncertain : true,
+            ask_when_uncertain: typeof style.ask_when_uncertain === "boolean" ? style.ask_when_uncertain : true,
         },
         last_known_state: {
             as_of: asOf,
