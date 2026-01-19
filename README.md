@@ -127,6 +127,23 @@ into a new session.
 
 ------------------------------------------------------------------------
 
+### `ulc inspect`
+
+Examine ledger structure and diagnose issues.
+``` bash
+ulc inspect --lid 2026-01-01-TEST
+```
+
+Shows:
+- Ledger entry structure
+- Wake block readiness
+- Missing or placeholder fields
+- Validation warnings
+
+Useful for debugging ledger state before running `wake`.
+
+------------------------------------------------------------------------
+
 ## Example Output
 
     [CONTEXT_BLOCK_START]
@@ -167,7 +184,12 @@ wrong.
 
 ## Versioning
 
-Current version: **v0.1.0**
+Current version: **v0.1.1**
+
+Recent changes:
+- Added `inspect` command for ledger diagnostics
+- Migrated CLI to TypeScript for better type safety
+- Added Wake Block grammar specification
 
 The CLI surface is intentionally conservative.\
 Breaking changes should be rare and explicit.
